@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 15:31:38 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/06/02 13:40:57 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/06/25 20:32:36 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 
-int		ft_atoi(const char *nptr);
+long	ft_atoi(const char *nptr);
 
 void	*ft_calloc(size_t nmemb, size_t size);
 

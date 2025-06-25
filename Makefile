@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/06/02 15:16:30 by mjoao-fr          #+#    #+#              #
-#    Updated: 2025/06/02 15:16:30 by mjoao-fr         ###   ########.fr        #
+#    Created: 2025/06/25 18:07:37 by mjoao-fr          #+#    #+#              #
+#    Updated: 2025/06/25 18:07:37 by mjoao-fr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC          = cc
-CFLAGS      = -Wall -Wextra -Werror -I$(LIBFT_DIR)
-NAME        = so_long
+CFLAGS      = -Wall -Wextra -Werror -I$(LIBFT_DIR) -g
+NAME        = push_swap
 SRCS        = main.c 
 OBJS        = $(SRCS:.c=.o)
 LIBFT_DIR   = ./libft-projects
@@ -22,13 +22,13 @@ all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
 	@echo "Compiling..."
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX) -lXext -lX11 -lm -lz -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
 	@$(MAKE) -C $(LIBFT_DIR) > /dev/null
 
 %.o: %.c push_swap.h
-	@$(CC) $(CFLAGS) -I/usr/include -O3 -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@echo "Removing objects..."
