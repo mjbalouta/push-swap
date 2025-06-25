@@ -1,26 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/25 19:20:15 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/06/25 21:43:41 by mjoao-fr         ###   ########.fr       */
+/*   Created: 2025/06/25 21:46:07 by mjoao-fr          #+#    #+#             */
+/*   Updated: 2025/06/25 21:55:47 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "./libft-projects/get-next-line/get_next_line.h"
-# include "./libft-projects/libft/libft.h"
-# include "./libft-projects/printf/libftprintf.h"
-
-int	verify_args(int ac, char **av);
-int	verify_integers(int ac, char **av);
-
-
-
-
-#endif
+// int	order

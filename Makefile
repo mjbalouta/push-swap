@@ -5,15 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/06/25 18:07:37 by mjoao-fr          #+#    #+#              #
-#    Updated: 2025/06/25 18:07:37 by mjoao-fr         ###   ########.fr        #
+#    Created: 2025/06/25 21:44:38 by mjoao-fr          #+#    #+#              #
+#    Updated: 2025/06/25 21:44:38 by mjoao-fr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC          = cc
 CFLAGS      = -Wall -Wextra -Werror -I$(LIBFT_DIR) -g
 NAME        = push_swap
-SRCS        = main.c 
+SRCS        = main.c push_swap.c
 OBJS        = $(SRCS:.c=.o)
 LIBFT_DIR   = ./libft-projects
 LIBFT       = $(LIBFT_DIR)/complete_libft.a
