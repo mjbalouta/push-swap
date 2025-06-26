@@ -1,15 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/25 21:46:07 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/06/25 21:55:47 by mjoao-fr         ###   ########.fr       */
+/*   Created: 2025/06/26 10:06:44 by mjoao-fr          #+#    #+#             */
+/*   Updated: 2025/06/26 11:02:37 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// int	order
+void	sa(t_stack *stack_a)
+{
+	int	temp;
+
+	temp = stack_a->numbers[0];
+	stack_a->numbers[0] = stack_a->numbers[1];
+	stack_a->numbers[1] = temp;
+}
+
+// void	sb(t_stack *stack_b)
+// {
+// 	int	temp;
+
+// 	temp = stack_b[0];
+// 	stack_b[0] = stack_b[1];
+// 	stack_b[1] = temp;
+// }
+
+// void	pa(int *stack_a, int *stack_b)
+// {
+// 	int	to_push;
+// 	int	temp;
+	
+// 	stack_b[0] = to_push;
+	
+// }
