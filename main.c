@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 19:20:03 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/06/26 11:08:08 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/06/26 11:16:54 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ void	select_algorithm(t_stack *stack_a)
 {
 	if (stack_a->size == 2)
 		sort_two(stack_a);
-	// if (stack_a->size == 3)
-	// 	sort_three();
+	if (stack_a->size == 3)
+		sort_three(stack_a);
 	// if (stack_a->size == 4 || stack_a->size == 5)
 	// 	sort_four_five();
 	// else

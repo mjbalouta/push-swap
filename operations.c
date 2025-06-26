@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 10:06:44 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/06/26 11:02:37 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/06/26 11:33:36 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,16 @@ void	sa(t_stack *stack_a)
 	temp = stack_a->numbers[0];
 	stack_a->numbers[0] = stack_a->numbers[1];
 	stack_a->numbers[1] = temp;
+}
+
+void	ra(t_stack *stack_a)
+{
+	int	temp;
+
+	temp = stack_a->numbers[2];
+	stack_a->numbers[2] = stack_a->numbers[1];
+	stack_a->numbers[1] = stack_a->numbers[0];
+	stack_a->numbers[0] = temp;	
 }
 
 // void	sb(t_stack *stack_b)
