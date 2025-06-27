@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 19:20:15 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/06/26 11:24:44 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/06/27 17:40:47 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,15 @@ typedef struct s_stack
 int		verify_args(int ac, char **av);
 int		verify_integers(int ac, char **av);
 int		*fill_stack(t_stack *stack_a, char **av);
-void	select_algorithm(t_stack *stack_a);
+int		select_algorithm(t_stack *stack_a);
 void	sa(t_stack *stack_a);
 void	ra(t_stack *stack_a);
+void	rsa(t_stack *stack_a);
+void	pb(t_stack *stack_a, t_stack *stack_b);
+int		find_minor(t_stack *stack_a);
 void	sort_two(t_stack *stack_a);
 void	sort_three(t_stack *stack_a);
+void	sort_four_five(t_stack *stack_a, t_stack *stack_b);
 
 
 #endif

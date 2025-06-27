@@ -13,7 +13,7 @@
 CC          = cc
 CFLAGS      = -Wall -Wextra -Werror -I$(LIBFT_DIR) -g
 NAME        = push_swap
-SRCS        = main.c operations.c sorting_algorithms.c
+SRCS        = main.c operations.c sorting_algorithms.c push_swap_utils.c
 OBJS        = $(SRCS:.c=.o)
 LIBFT_DIR   = ./libft-projects
 LIBFT       = $(LIBFT_DIR)/complete_libft.a

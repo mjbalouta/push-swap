@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 19:20:03 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/06/26 11:16:54 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/06/27 18:05:45 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,24 @@ int	*fill_stack(t_stack *stack_a, char **av)
 	return (stack_a->numbers);
 }
 
-void	select_algorithm(t_stack *stack_a)
+int	select_algorithm(t_stack *stack_a)
 {
+	t_stack	stack_b;
+
+	stack_b.numbers = ft_calloc(stack_a->size, sizeof(int));
+	stack_b.size = 0;
+	if (!stack_b.numbers)
+		return (ft_printf("Error.\nCan't allocate memory.\n"));
 	if (stack_a->size == 2)
 		sort_two(stack_a);
 	if (stack_a->size == 3)
-		sort_three(stack_a);
-	// if (stack_a->size == 4 || stack_a->size == 5)
-	// 	sort_four_five();
+		sort_three(stack_a); 
+	if (stack_a->size == 4 || stack_a->size == 5)
+		sort_four_five(stack_a, &stack_b);
 	// else
 	// 	radix_sort();
+	return (0);
+	free(stack_b.numbers);
 }
 
 int	main(int ac, char **av)
