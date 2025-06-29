@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 19:20:15 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/06/29 21:10:37 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/06/29 23:36:05 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	rsa(t_stack *stack_a);
 void	pb(t_stack *stack_a, t_stack *stack_b);
 void	pa(t_stack *stack_a, t_stack *stack_b);
 int		find_minor(t_stack *stack_a);
+void	put_minor_on_top(t_stack *stack_a);
 void	sort_two(t_stack *stack_a);
 void	sort_three(t_stack *stack_a);
 void	sort_four_five(t_stack *stack_a, t_stack *stack_b);
