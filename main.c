@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 19:20:03 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/06/27 18:05:45 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/06/30 19:02:59 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,12 @@ int	select_algorithm(t_stack *stack_a)
 		return (ft_printf("Error.\nCan't allocate memory.\n"));
 	if (stack_a->size == 2)
 		sort_two(stack_a);
-	if (stack_a->size == 3)
+	else if (stack_a->size == 3)
 		sort_three(stack_a); 
-	if (stack_a->size == 4 || stack_a->size == 5)
+	else if (stack_a->size == 4 || stack_a->size == 5)
 		sort_four_five(stack_a, &stack_b);
-	// else
-	// 	radix_sort();
+	else
+		radix_sort(stack_a, &stack_b);
 	return (0);
 	free(stack_b.numbers);
 }

@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 15:22:19 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/06/30 10:58:21 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/06/30 22:29:07 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,35 +29,66 @@ int	find_minor(t_stack *stack_a)
 		}
 		i++;
 	}
-	// ft_printf("minor: %d\nindex: %d\n", minor, index);
 	return (index);
 }
-void	put_minor_on_top(t_stack *stack_a)
+void	put_minor_first(t_stack *stack_a)
 {
 	int	index;
 
 	index = find_minor(stack_a);
-	if (index == stack_a->size - 1)
+	if (index == 0)
 		return ;
-	if (index >= (stack_a->size / 2) && stack_a->size == 4)
+	if (index == stack_a->size - 1)
+		rra(stack_a);
+	else if (index >= (stack_a->size / 2) && stack_a->size == 4)
 	{
-		while (--index > 0)
+		while (index-- > 0)
 			ra(stack_a);
 	}
 	else if (index > (stack_a->size / 2) && stack_a->size == 5)
 	{
 		while (--index > 1)
-			ra(stack_a);
+			rra(stack_a);
 	}
 	else if (index == (stack_a->size / 2) && stack_a->size == 5)
 	{
 		while (--index >= 0)
-			ra(stack_a);
+			rra(stack_a);
 	}
 	else if (index < (stack_a->size / 2))
 	{
 		while (index-- >= 0)
-			rsa(stack_a);
+			ra(stack_a);
 	}
 }
 
+int	find_largest(t_stack *stack_a)
+{
+	int	larger;
+	int	i;
+	int	index;
+
+	i = 0;
+	larger = INT_MIN;
+	while(i < stack_a->size)
+	{
+		if (stack_a->numbers[i] > larger)
+		{
+			larger = stack_a->numbers[i];
+			index = i;
+		}
+		i++;
+	}
+	return (index);
+}
+int	define_nr_comparisons(t_stack *stack_a)
+{
+	int		index_larg;
+	char	*binary_form;
+	int		nr_digits;
+	
+	index_larg = find_largest(stack_a);
+	binary_form = convert_to_binary(stack_a->numbers[index_larg]);
+	nr_digits = ft_strlen(binary_form);
+	return (nr_digits);
+}

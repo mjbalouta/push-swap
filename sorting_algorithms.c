@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 10:54:41 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/06/30 11:04:49 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/06/30 20:25:09 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,17 @@ void	sort_two(t_stack *stack_a)
 
 void	sort_three(t_stack *stack_a)
 {
-	int	swapped;
-
-	swapped = 1;
-	while (swapped == 1)
+	int	index;
+	
+	index = find_minor(stack_a);
+	if (index == 1)
+		sa(stack_a);
+	if (index == 2)
+		rra(stack_a);
+	if (stack_a->numbers[1] > stack_a->numbers[2])
 	{
-		swapped = 0;
-		if (stack_a->numbers[1] > stack_a->numbers[2])
-		{	
-			swapped = 1;
-			sa(stack_a);
-			
-		}
-		if (stack_a->numbers[0] > stack_a->numbers[2] || stack_a->numbers[0] > stack_a->numbers[1])
-		{
-			swapped = 1;
-			rsa(stack_a);
-		}
+		rra(stack_a);
+		sa(stack_a);
 	}
 	// ft_printf("%d, ", stack_a->numbers[0]);
 	// ft_printf("%d, ", stack_a->numbers[1]);
@@ -49,32 +43,56 @@ void	sort_four_five(t_stack *stack_a, t_stack *stack_b)
 {	
 	if (stack_a->size == 4)
 	{
-		put_minor_on_top(stack_a);
+		put_minor_first(stack_a);
 		pb(stack_a, stack_b);
 		sort_three(stack_a);
 		pa(stack_a, stack_b);
-		ra(stack_a);
 	}
 	else if (stack_a->size == 5)
 	{
-		put_minor_on_top(stack_a);
+		put_minor_first(stack_a);
 		pb(stack_a, stack_b);
-		put_minor_on_top(stack_a);
+		put_minor_first(stack_a);
 		pb(stack_a, stack_b);
 		sort_three(stack_a);
 		pa(stack_a, stack_b);
-		ra(stack_a);
 		pa(stack_a, stack_b);
-		ra(stack_a);
 	}
-	ft_printf("\nstack_a after: ");
-	ft_printf("%d ,", stack_a->numbers[0]);
-	ft_printf("%d ,", stack_a->numbers[1]);
-	ft_printf("%d ,", stack_a->numbers[2]);
-	ft_printf("%d ,", stack_a->numbers[3]);
-	ft_printf("%d \n", stack_a->numbers[4]);
-	ft_printf("\nstack_b after: ");
-	ft_printf("%d ,", stack_b->numbers[0]);
-	ft_printf("%d ,", stack_b->numbers[1]);
-	(void)stack_b;
+}
+void	radix_sort(t_stack *stack_a, t_stack *stack_b)
+{
+	int	nr_comp;
+	int	i;
+	int	bit;
+
+	nr_comp = define_nr_comparisons(stack_a);
+	i = stack_a->size - 1;	
+	while (nr_comp >= 0)
+	{
+		while (i >= 0)
+		{
+			bit = get_bit(stack_a->numbers[i], nr_comp - 1);
+			if (bit == 0)
+				pb(stack_a, stack_b);
+			else if (bit == 1)
+				ra(stack_a);
+			i--;
+		}
+		i = stack_b->size - 1;
+		while (i >= 0)
+		{
+			pa(stack_a, stack_b);
+			i--;
+		}
+		nr_comp--;
+	}
+	// ft_printf("\nstack_a after: ");
+	// i = 0;
+	// while (i < stack_a->size)
+	// 	ft_printf("%d ,", stack_a->numbers[i++]);
+	
+	// ft_printf("\nstack_b after: ");
+	// i = 0;
+	// while (i < stack_a->size)
+	// 	ft_printf("%d ,", stack_a->numbers[i++]);
 }
