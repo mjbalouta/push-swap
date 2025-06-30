@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 10:54:41 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/06/30 00:30:31 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/06/30 11:04:49 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	sort_two(t_stack *stack_a)
 {
 	if (stack_a->numbers[0] > stack_a->numbers[1])
 		sa(stack_a);
+	// ft_printf("%d, ", stack_a->numbers[0]);
+	// ft_printf("%d, ", stack_a->numbers[1]);
 }
 
 void	sort_three(t_stack *stack_a)
@@ -26,13 +28,13 @@ void	sort_three(t_stack *stack_a)
 	while (swapped == 1)
 	{
 		swapped = 0;
-		if (stack_a->numbers[1] < stack_a->numbers[2])
+		if (stack_a->numbers[1] > stack_a->numbers[2])
 		{	
 			swapped = 1;
 			sa(stack_a);
 			
 		}
-		if (stack_a->numbers[0] < stack_a->numbers[2] || stack_a->numbers[0] < stack_a->numbers[1])
+		if (stack_a->numbers[0] > stack_a->numbers[2] || stack_a->numbers[0] > stack_a->numbers[1])
 		{
 			swapped = 1;
 			rsa(stack_a);
@@ -51,6 +53,7 @@ void	sort_four_five(t_stack *stack_a, t_stack *stack_b)
 		pb(stack_a, stack_b);
 		sort_three(stack_a);
 		pa(stack_a, stack_b);
+		ra(stack_a);
 	}
 	else if (stack_a->size == 5)
 	{
@@ -60,7 +63,9 @@ void	sort_four_five(t_stack *stack_a, t_stack *stack_b)
 		pb(stack_a, stack_b);
 		sort_three(stack_a);
 		pa(stack_a, stack_b);
+		ra(stack_a);
 		pa(stack_a, stack_b);
+		ra(stack_a);
 	}
 	ft_printf("\nstack_a after: ");
 	ft_printf("%d ,", stack_a->numbers[0]);
