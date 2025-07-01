@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 10:54:41 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/01 17:27:07 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/01 17:38:57 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ void	sort_four_five(t_stack *stack_a, t_stack *stack_b)
 		pa(stack_a, stack_b);
 		pa(stack_a, stack_b);
 	}
-	ft_printf("%d, ", stack_a->numbers[0]);
-	ft_printf("%d, ", stack_a->numbers[1]);
-	ft_printf("%d, ", stack_a->numbers[2]);
-	ft_printf("%d, ", stack_a->numbers[3]);
-	ft_printf("%d\n", stack_a->numbers[4]);
+	// ft_printf("%d, ", stack_a->numbers[0]);
+	// ft_printf("%d, ", stack_a->numbers[1]);
+	// ft_printf("%d, ", stack_a->numbers[2]);
+	// ft_printf("%d, ", stack_a->numbers[3]);
+	// ft_printf("%d\n", stack_a->numbers[4]);
 }
 void	divide_by_stacks(t_stack *stack_a, t_stack *stack_b, int nr_comp, int digit)
 {

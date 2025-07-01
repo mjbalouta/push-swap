@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 17:13:39 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/01 17:07:37 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/01 17:39:10 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ char	get_bit(int number, int nr_comp, int digit)
 {
 	char	*nr;
 	int		i;
+	char	bit;
 
-	i = nr_comp;
-	nr = ft_calloc(i + 1, sizeof(unsigned char));
-	nr[i + 1] = '\0';
+	i = nr_comp - 1;
+	nr = ft_calloc(nr_comp, sizeof(char));
+	nr[nr_comp] = '\0';
 	if (!nr)
 		return ('0');
 	while (i >= 0)
@@ -28,7 +29,9 @@ char	get_bit(int number, int nr_comp, int digit)
 		number = number / 2;
 		i--;
 	}
-	return (nr[digit]);
+	bit = nr[digit];
+	free(nr);
+	return (bit);
 }
 
 // int get_bit(int number, int position)
