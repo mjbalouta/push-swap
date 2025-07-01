@@ -6,22 +6,20 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 17:13:39 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/01 12:32:08 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/01 17:07:37 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	get_bit(int number, int nr_comp)
+char	get_bit(int number, int nr_comp, int digit)
 {
 	char	*nr;
 	int		i;
-	int		last;
 
-	i = nr_comp - 1;
-	last = nr_comp - 1;
-	nr = ft_calloc(nr_comp + 1, sizeof(unsigned char));
-	nr[last + 1] = '\0';
+	i = nr_comp;
+	nr = ft_calloc(i + 1, sizeof(unsigned char));
+	nr[i + 1] = '\0';
 	if (!nr)
 		return ('0');
 	while (i >= 0)
@@ -30,7 +28,7 @@ char	get_bit(int number, int nr_comp)
 		number = number / 2;
 		i--;
 	}
-	return (nr[last]);
+	return (nr[digit]);
 }
 
 // int get_bit(int number, int position)
