@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 19:20:03 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/06/30 19:02:59 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/01 11:28:12 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int	select_algorithm(t_stack *stack_a)
 {
 	t_stack	stack_b;
 
+	if (is_sorted(stack_a) == 0)
+		return (1);
 	stack_b.numbers = ft_calloc(stack_a->size, sizeof(int));
 	stack_b.size = 0;
 	if (!stack_b.numbers)
@@ -91,6 +93,7 @@ int	main(int ac, char **av)
 		return (ft_printf("Error.\nOnly integers are allowed.\n"));
 	if (verify_integers(ac, av) == 1)
 		return (ft_printf("Error.\nOnly integers up to int_max and down to int_min allowed.\n"));
+	//FALTA VERIFICAR DUPLICADOS. NAO PODE TER NUMEROS DUPLICADOS
 	stack_a.size = ac - 1;
 	stack_a.numbers = ft_calloc(stack_a.size, sizeof(int));
 	if (!stack_a.numbers)

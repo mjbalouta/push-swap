@@ -6,16 +6,37 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 17:13:39 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/06/30 17:18:50 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/01 12:32:08 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int get_bit(int number, int position)
+char	get_bit(int number, int nr_comp)
 {
-    return ((number >> position) & 1);
+	char	*nr;
+	int		i;
+	int		last;
+
+	i = nr_comp - 1;
+	last = nr_comp - 1;
+	nr = ft_calloc(nr_comp + 1, sizeof(unsigned char));
+	nr[last + 1] = '\0';
+	if (!nr)
+		return ('0');
+	while (i >= 0)
+	{
+		nr[i] = (number % 2) + '0';
+		number = number / 2;
+		i--;
+	}
+	return (nr[last]);
 }
+
+// int get_bit(int number, int position)
+// {
+//     return ((number >> position) & 1);
+// }
 
 int	count_digits(int num)
 {

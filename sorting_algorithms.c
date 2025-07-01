@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 10:54:41 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/06/30 20:25:09 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/01 12:38:55 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,25 +58,30 @@ void	sort_four_five(t_stack *stack_a, t_stack *stack_b)
 		pa(stack_a, stack_b);
 		pa(stack_a, stack_b);
 	}
+	ft_printf("%d, ", stack_a->numbers[0]);
+	ft_printf("%d, ", stack_a->numbers[1]);
+	ft_printf("%d, ", stack_a->numbers[2]);
+	ft_printf("%d, ", stack_a->numbers[3]);
+	ft_printf("%d\n", stack_a->numbers[4]);
 }
 void	radix_sort(t_stack *stack_a, t_stack *stack_b)
 {
-	int	nr_comp;
-	int	i;
-	int	bit;
+	int		nr_comp;
+	int		i;
+	char	bit;
 
 	nr_comp = define_nr_comparisons(stack_a);
-	i = stack_a->size - 1;	
+	i = 0;	
 	while (nr_comp >= 0)
 	{
-		while (i >= 0)
+		while (i < stack_a->size)
 		{
-			bit = get_bit(stack_a->numbers[i], nr_comp - 1);
-			if (bit == 0)
+			bit = get_bit(stack_a->numbers[0], nr_comp);
+			if (bit == '0')
 				pb(stack_a, stack_b);
-			else if (bit == 1)
+			else if (bit == '1')
 				ra(stack_a);
-			i--;
+			i++;
 		}
 		i = stack_b->size - 1;
 		while (i >= 0)
@@ -86,13 +91,13 @@ void	radix_sort(t_stack *stack_a, t_stack *stack_b)
 		}
 		nr_comp--;
 	}
-	// ft_printf("\nstack_a after: ");
-	// i = 0;
-	// while (i < stack_a->size)
-	// 	ft_printf("%d ,", stack_a->numbers[i++]);
+	ft_printf("\nstack_a after: ");
+	i = 0;
+	while (i < stack_a->size)
+		ft_printf("%d ,", stack_a->numbers[i++]);
 	
-	// ft_printf("\nstack_b after: ");
-	// i = 0;
-	// while (i < stack_a->size)
-	// 	ft_printf("%d ,", stack_a->numbers[i++]);
+	ft_printf("\nstack_b after: ");
+	i = 0;
+	while (i < stack_a->size)
+		ft_printf("%d ,", stack_a->numbers[i++]);
 }
