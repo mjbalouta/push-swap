@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 10:54:41 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/01 17:38:57 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/02 15:08:21 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ void	sort_three(t_stack *stack_a)
 	int	index;
 	
 	index = find_minor(stack_a);
-	if (index == 1)
+	if (index == 1 && (is_sorted(stack_a) != 0))
 		sa(stack_a);
-	if (index == 2)
+	if (index == 2 && (is_sorted(stack_a) != 0))
 		rra(stack_a);
-	if (stack_a->numbers[1] > stack_a->numbers[2])
+	if (stack_a->numbers[1] > stack_a->numbers[2] && (is_sorted(stack_a) != 0))
 	{
 		rra(stack_a);
 		sa(stack_a);
@@ -58,11 +58,11 @@ void	sort_four_five(t_stack *stack_a, t_stack *stack_b)
 		pa(stack_a, stack_b);
 		pa(stack_a, stack_b);
 	}
-	// ft_printf("%d, ", stack_a->numbers[0]);
-	// ft_printf("%d, ", stack_a->numbers[1]);
-	// ft_printf("%d, ", stack_a->numbers[2]);
-	// ft_printf("%d, ", stack_a->numbers[3]);
-	// ft_printf("%d\n", stack_a->numbers[4]);
+	ft_printf("%d, ", stack_a->numbers[0]);
+	ft_printf("%d, ", stack_a->numbers[1]);
+	ft_printf("%d, ", stack_a->numbers[2]);
+	ft_printf("%d, ", stack_a->numbers[3]);
+	ft_printf("%d\n", stack_a->numbers[4]);
 }
 void	divide_by_stacks(t_stack *stack_a, t_stack *stack_b, int nr_comp, int digit)
 {

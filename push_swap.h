@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 19:20:15 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/01 17:39:31 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/02 15:18:04 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,17 @@ typedef struct s_stack
 	int	*numbers;
 }				t_stack;
 
+typedef struct s_args
+{
+	int		new_ac;
+	char	**new_av;
+}				t_args;
 
-int		verify_args(int ac, char **av);
-int		verify_integers(int ac, char **av);
-int		*fill_stack(t_stack *stack_a, char **av);
+void	handle_args(int ac, char **av, t_args *args);
+int		verify_args(t_args *args);
+int		verify_integers(t_args *args);
+int		detect_duplicates(t_args *args);
+int		*fill_stack(t_stack *stack_a, t_args *args);
 int		select_algorithm(t_stack *stack_a);
 void	sa(t_stack *stack_a);
 void	ra(t_stack *stack_a);
