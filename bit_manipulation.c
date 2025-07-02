@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 17:13:39 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/01 17:39:10 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/02 21:05:40 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ char	*convert_to_binary(int num)
 	int		i;
 
 	i = count_digits(num) - 1;
-	nr = ft_calloc(i + 1, sizeof(unsigned char));
+	nr = ft_calloc(i + 2, sizeof(unsigned char));
 	nr[i + 1] = '\0';
 	if (!nr)
 		return (NULL);

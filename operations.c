@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 10:06:44 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/01 16:13:36 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/02 21:15:59 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	pb(t_stack *stack_a, t_stack *stack_b)
 	if (stack_a->size > 1)
 	{
 		i = -1;
-		while (++i < stack_a->size)
+		while (++i < (stack_a->size - 1))
 			stack_a->numbers[i] = stack_a->numbers[i + 1];
 		stack_a->numbers[i] = 0;
 	}
@@ -128,7 +128,7 @@ void	pa(t_stack *stack_a, t_stack *stack_b)
 	if (stack_b->size > 1)
 	{
 		i = -1;
-		while (++i < stack_b->size)
+		while (++i < (stack_b->size - 1))
 			stack_b->numbers[i] = stack_b->numbers[i + 1];
 		stack_b->numbers[i] = 0;
 	}

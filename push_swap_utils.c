@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 15:22:19 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/01 11:48:12 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/02 22:28:33 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ int	define_nr_comparisons(t_stack *stack_a)
 	index_larg = find_largest(stack_a);
 	binary_form = convert_to_binary(stack_a->numbers[index_larg]);
 	nr_digits = ft_strlen(binary_form);
+	free(binary_form);
 	return (nr_digits);
 }
 
@@ -93,7 +94,7 @@ int	is_sorted(t_stack *stack_a)
 	int	i;
 
 	i = 0;
-	while (i < stack_a->size - 1)
+	while (i < (stack_a->size - 1))
 	{
 		if (stack_a->numbers[i] < stack_a->numbers[i + 1])
 			i++;

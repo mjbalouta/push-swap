@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 10:54:41 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/02 15:08:21 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/02 21:17:27 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,10 @@ void	sort_four_five(t_stack *stack_a, t_stack *stack_b)
 		pa(stack_a, stack_b);
 		pa(stack_a, stack_b);
 	}
-	ft_printf("%d, ", stack_a->numbers[0]);
-	ft_printf("%d, ", stack_a->numbers[1]);
-	ft_printf("%d, ", stack_a->numbers[2]);
-	ft_printf("%d, ", stack_a->numbers[3]);
-	ft_printf("%d\n", stack_a->numbers[4]);
+	int	i;
+	i = 0;
+	while (i < stack_a->size)
+		ft_printf("%d ", stack_a->numbers[i++]);
 }
 void	divide_by_stacks(t_stack *stack_a, t_stack *stack_b, int nr_comp, int digit)
 {
@@ -104,11 +103,11 @@ void	radix_sort(t_stack *stack_a, t_stack *stack_b)
 	}
 	ft_printf("\nstack_a after: ");
 	i = 0;
-	while (i < stack_a->size)
-		ft_printf("%d ", stack_a->numbers[i++]);
+	// while (i < stack_a->size)
+	// 	ft_printf("%d ", stack_a->numbers[i++]);
 	
-	ft_printf("\nstack_b after: ");
-	i = 0;
-	while (i < stack_b->size)
-		ft_printf("%d ,", stack_b->numbers[i++]);
+	// ft_printf("\nstack_b after: ");
+	// i = 0;
+	// while (i < stack_b->size)
+	// 	ft_printf("%d ,", stack_b->numbers[i++]);
 }

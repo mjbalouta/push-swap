@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:45:06 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/02 15:33:55 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/02 22:08:40 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,22 @@ int	detect_duplicates(t_stack *stack_a)
 {
 	int		i;
 	int		j;
+	int		*num;
 	
-	i = 1;
-	j = 0;
-	while (i < stack_a->size)
+	i = 0;
+	num = stack_a->numbers;
+	while (i < (stack_a->size - 1))
 	{
 		j = i + 1;
-		while (j < (stack_a->size - 1))
+		while (j < stack_a->size)
 		{
-			
+			if (num[i] == num[j])
+				return (1);
+			j++;
 		}
+		i++;
 	}
+	return (0);
 }
 
 int	verify_integers(t_args *args)
@@ -45,23 +50,25 @@ int	verify_integers(t_args *args)
 	}
 	return (0);
 }
-void	handle_args(int ac, char **av, t_args *args)
+int	handle_args(int ac, char **av, t_args *args)
 {
-	int		i;
-	
-	i = 0;
 	args->new_ac = 0;
 	if (ac == 2)
 	{
 		args->new_av = ft_split(av[1], ' ');
 		while (args->new_av[args->new_ac])
 			args->new_ac++;
+		args->changed = 1;
 	}
 	else
 	{
 		args->new_ac = ac - 1;
 		args->new_av = av + 1;
+		args->changed = 0;
 	}
+	if (args->new_ac == 1)
+			return (1);
+	return (0);
 }
 int	verify_args(t_args *args)
 {

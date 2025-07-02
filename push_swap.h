@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 19:20:15 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/02 15:18:04 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/02 21:58:04 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ typedef struct s_args
 {
 	int		new_ac;
 	char	**new_av;
+	int		changed;
 }				t_args;
 
-void	handle_args(int ac, char **av, t_args *args);
+int		handle_args(int ac, char **av, t_args *args);
 int		verify_args(t_args *args);
 int		verify_integers(t_args *args);
-int		detect_duplicates(t_args *args);
+int		detect_duplicates(t_stack *stack_a);
 int		*fill_stack(t_stack *stack_a, t_args *args);
 int		select_algorithm(t_stack *stack_a);
 void	sa(t_stack *stack_a);
@@ -49,6 +50,8 @@ int		count_digits(int num);
 int		define_nr_comparisons(t_stack *stack_a);
 int		is_sorted(t_stack *stack_a);
 void	divide_by_stacks(t_stack *stack_a, t_stack *stack_b, int nr_comp, int digit);
+void	free_memory(t_stack *stack_a, t_args *args);
+void	free_args(t_args *args);
 void	sort_two(t_stack *stack_a);
 void	sort_three(t_stack *stack_a);
 void	sort_four_five(t_stack *stack_a, t_stack *stack_b);
