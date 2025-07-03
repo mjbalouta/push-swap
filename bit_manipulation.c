@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 17:13:39 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/02 21:05:40 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/03 12:13:31 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,6 @@ char	get_bit(int number, int nr_comp, int digit)
 	free(nr);
 	return (bit);
 }
-
-// int get_bit(int number, int position)
-// {
-//     return ((number >> position) & 1);
-// }
 
 int	count_digits(int num)
 {

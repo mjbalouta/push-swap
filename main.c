@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 19:20:03 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/02 22:30:31 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/03 12:22:55 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ int	select_algorithm(t_stack *stack_a)
 		if (stack_a->size == 4 || stack_a->size == 5)
 			sort_four_five(stack_a, &stack_b);
 		else
-			radix_sort(stack_a, &stack_b);
+		{
+			if (radix_sort(stack_a, &stack_b) == 1)
+				return (1);
+		}
 		free(stack_b.numbers);
 	}
 	return (0);
@@ -63,7 +66,7 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		return (0);
 	if (handle_args(ac, av, &args) == 1)
-		return (free_args(&args), 0);
+		return (free_args(&args), ft_printf("Error\nAt least two numbers needed.\n"));
 	if (verify_args(&args) == 1)
 		return (free_args(&args), ft_printf("Error\nInvalid args.\n"));
 	if (verify_integers(&args) == 1)
@@ -71,12 +74,12 @@ int	main(int ac, char **av)
 	stack_a.size = args.new_ac;
 	stack_a.numbers = ft_calloc(stack_a.size, sizeof(int));
 	if (!stack_a.numbers)
-		return (ft_printf("Error\nCan't allocate memory for stack_a.\n"));
+		return (ft_printf("Error\nCan't allocate memory.\n"));
 	stack_a.numbers = fill_stack(&stack_a, &args);
 	if (detect_duplicates(&stack_a) == 1)
 		return (free_memory(&stack_a, &args), ft_printf("Error\nDuplicates are not allowed.\n"));
 	if (select_algorithm(&stack_a) == 1)
-		return (free_memory(&stack_a, &args), ft_printf("Error\nCan't allocate memory for stack_b.\n"));
+		return (free_memory(&stack_a, &args), ft_printf("Error\nCan't allocate memory.\n"));
 	free_memory(&stack_a, &args);
 	return (0);
 }

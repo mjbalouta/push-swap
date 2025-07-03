@@ -6,13 +6,13 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 15:22:19 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/02 22:28:33 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/03 15:00:34 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_minor(t_stack *stack_a)
+int	find_minor(t_stack *stack_a, int compare)
 {
 	int	minor;
 	int	i;
@@ -24,21 +24,30 @@ int	find_minor(t_stack *stack_a)
 	{
 		if (stack_a->numbers[i] < minor)
 		{
-			minor = stack_a->numbers[i];
-			index = i;
+			if (compare == 1 && stack_a->numbers[i] != stack_a->minor)
+			{
+				minor = stack_a->numbers[i];
+				index = i;
+			}
+			else if (compare == 0)
+			{
+				minor = stack_a->numbers[i];
+				index = i;
+			}
 		}
 		i++;
 	}
+	stack_a->minor = minor;
 	return (index);
 }
-void	put_minor_first(t_stack *stack_a)
+void	put_minor_first(t_stack *stack_a, int size, int compare)
 {
 	int	index;
 
-	index = find_minor(stack_a);
+	index = find_minor(stack_a, compare);
 	if (index == 0)
 		return ;
-	if (index == stack_a->size - 1)
+	if (index == size)
 		rra(stack_a);
 	else if (index >= (stack_a->size / 2) && stack_a->size == 4)
 	{
