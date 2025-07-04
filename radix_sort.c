@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:28:56 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/03 14:52:13 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/04 19:39:11 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,36 +31,46 @@ void	divide_by_stacks(t_stack *stack_a, t_stack *stack_b, int nr_comp, int digit
 	}
 }
 
-void	fill_index(t_stack *stack_a)
+int	fill_index(t_stack *stack_a)
 {
 	int	index;
 	int	i;
 
-	i = 0;
-	while (i < stack_a->size - 1)
+	i = stack_a->size - 1;
+	stack_a->checked_size = 0;
+	stack_a->checked = ft_calloc(stack_a->size, sizeof(int));
+	if (!stack_a->checked)
+		return (-1);
+	while (i > 0)
 	{
-		index = find_minor(stack_a, 1);
+		index = find_largest(stack_a);
+		if (index == -1)
+			return (1);
 		stack_a->index[index] = i;
-		i++;
+		i--;
 	}
 	i = 0;
 	while (i < stack_a->size)
 		ft_printf("%d ", stack_a->index[i++]);
+	free(stack_a->checked);
+	return (0);
 }
 
 int	radix_sort(t_stack *stack_a, t_stack *stack_b)
 {
-	fill_index(stack_a);
+	
 	(void)stack_b;
 	// int		nr_comp;
-	// int		i;
+	int		i;
 	// int		digit;
 
 	// nr_comp = define_nr_comparisons(stack_a);
 	stack_a->index = ft_calloc(stack_a->size, sizeof(int));
 	if (!stack_a->index)
 		return (1);
-	stack_a->minor = INT_MAX;
+	// duplicate_stack(stack_a);
+	if (fill_index(stack_a) == 1)
+		return (1);
 	// digit = nr_comp;
 	// while (digit >= 0)
 	// {
@@ -75,9 +85,9 @@ int	radix_sort(t_stack *stack_a, t_stack *stack_b)
 	// }
 	// ft_printf("\nstack_a after: ");
 	return (0);
-	// i = 0;
-	// while (i < stack_a->size)
-	// 	ft_printf("%d ", stack_a->numbers[i++]);
+	i = 0;
+	while (i < stack_a->size)
+		ft_printf("%d ", stack_a->index[i++]);
 	
 	// ft_printf("\nstack_b after: ");
 	// i = 0;

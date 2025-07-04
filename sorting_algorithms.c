@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 10:54:41 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/03 14:32:55 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/04 11:17:16 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	sort_three(t_stack *stack_a)
 {
 	int	index;
 	
-	index = find_minor(stack_a, 0);
+	index = find_minor(stack_a);
 	if (index == 1 && (is_sorted(stack_a) != 0))
 		sa(stack_a);
 	if (index == 2 && (is_sorted(stack_a) != 0))
@@ -43,16 +43,16 @@ void	sort_four_five(t_stack *stack_a, t_stack *stack_b)
 {	
 	if (stack_a->size == 4)
 	{
-		put_minor_first(stack_a, stack_a->size - 1, 0);
+		put_minor_first(stack_a, stack_a->size - 1);
 		pb(stack_a, stack_b);
 		sort_three(stack_a);
 		pa(stack_a, stack_b);
 	}
 	else if (stack_a->size == 5)
 	{
-		put_minor_first(stack_a, stack_a->size - 1, 0);
+		put_minor_first(stack_a, stack_a->size - 1);
 		pb(stack_a, stack_b);
-		put_minor_first(stack_a, stack_a->size - 1, 0);
+		put_minor_first(stack_a, stack_a->size - 1);
 		pb(stack_a, stack_b);
 		sort_three(stack_a);
 		pa(stack_a, stack_b);
