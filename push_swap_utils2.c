@@ -6,13 +6,13 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 15:35:11 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/04 19:38:48 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/05 18:56:58 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_largest(t_stack *stack_a)
+int	find_largest_to_index(t_stack *stack_a)
 {
 	int	larger;
 	int	i;

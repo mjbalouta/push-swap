@@ -6,31 +6,42 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 17:13:39 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/03 12:13:31 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/05 23:15:06 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	get_bit(int number, int nr_comp, int digit)
+char	get_bit(char *number, int iterations)
 {
-	char	*nr;
-	int		i;
+	int		nr_digits;
 	char	bit;
+	int		position;
 
-	i = nr_comp - 1;
-	nr = ft_calloc(nr_comp, sizeof(char));
-	nr[nr_comp] = '\0';
-	if (!nr)
-		return ('0');
-	while (i >= 0)
-	{
-		nr[i] = (number % 2) + '0';
-		number = number / 2;
-		i--;
-	}
-	bit = nr[digit];
-	free(nr);
+	nr_digits = ft_strlen(number);
+	iterations += 1;
+	position = nr_digits - iterations;
+	if (position < 0)
+		bit = '0';
+	else
+		bit = number[position];
+	
+	// if (nr_digits == digits)
+	// {
+	// 	position = nr_digits - 1 - iterations;
+	// 	if (position < 0)
+	// 		bit = '0';
+	// 	else
+	// 		bit = number[nr_digits - 1 - iterations];
+	// }
+	// else
+	// {
+	// 	position = nr_digits - 1;
+	// 	if (position < 0)
+	// 		bit = '0';
+	// 	else
+	// 		bit = number[nr_digits - 1];
+	// }
 	return (bit);
 }
 
