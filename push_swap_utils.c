@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 15:22:19 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/05 19:27:26 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/06 13:41:15 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int	define_nr_comparisons(t_stack *stack_a)
 	
 	
 	index_larg = find_max(stack_a);
-	binary_form = convert_to_binary(stack_a->index[index_larg]);
+	binary_form = convert_to_binary(stack_a->numbers[index_larg]);
 	nr_digits = ft_strlen(binary_form);
 	free(binary_form);
 	return (nr_digits);
