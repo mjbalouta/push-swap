@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 15:22:19 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/06 13:41:15 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/06 15:25:32 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	find_minor(t_stack *stack_a)
 	return (index);
 }
 
-int	find_max(t_stack *stack_a)
+int	find_max(int *num, int size)
 {
 	int	max;
 	int	i;
@@ -40,11 +40,11 @@ int	find_max(t_stack *stack_a)
 
 	i = 0;
 	max = INT_MIN;
-	while(i < stack_a->size)
+	while(i < size)
 	{
-		if (stack_a->numbers[i] > max)
+		if (num[i] > max)
 		{
-			max = stack_a->numbers[i];
+			max = num[i];
 			index = i;
 		}
 		i++;
@@ -86,7 +86,7 @@ int	fill_binary_array(t_stack *stack_a)
 	i = 0;
 	stack_a->binary = ft_calloc(stack_a->size + 1, sizeof(char *));
 	if (!stack_a->binary)
-		return (-1);
+		return (1);
 	while (i < stack_a->size)
 	{
 		binary_form = convert_to_binary(stack_a->index[i]);
@@ -95,6 +95,7 @@ int	fill_binary_array(t_stack *stack_a)
 		if (!stack_a->binary[i])
 			return (-1);
 		stack_a->binary[i] = binary_form;
+		free(binary_form);
 		i++;
 	}
 	return (0);
@@ -107,8 +108,8 @@ int	define_nr_comparisons(t_stack *stack_a)
 	char	*binary_form;
 	
 	
-	index_larg = find_max(stack_a);
-	binary_form = convert_to_binary(stack_a->numbers[index_larg]);
+	index_larg = find_max(stack_a->index, stack_a->size);
+	binary_form = convert_to_binary(stack_a->index[index_larg]);
 	nr_digits = ft_strlen(binary_form);
 	free(binary_form);
 	return (nr_digits);

@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 19:20:15 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/05 23:14:42 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/06 15:06:57 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	rra(t_stack *stack_a);
 void	pb(t_stack *stack_a, t_stack *stack_b);
 void	pa(t_stack *stack_a, t_stack *stack_b);
 int		find_minor(t_stack *stack_a);
-int		find_max(t_stack *stack_a);
+int		find_max(int *num, int size);
 void	put_minor_first(t_stack *stack_a, int size);
 void	put_largest_last(t_stack *stack_a);
 char	get_bit(char *number, int iterations);
@@ -58,6 +58,7 @@ int		define_nr_comparisons(t_stack *stack_a);
 int		is_sorted(t_stack *stack_a);
 void	free_memory(t_stack *stack_a, t_args *args);
 void	free_args(t_args *args);
+void	free_binary(t_stack *stack_a);
 void	sort_two(t_stack *stack_a);
 void	sort_three(t_stack *stack_a);
 void	sort_four_five(t_stack *stack_a, t_stack *stack_b);
