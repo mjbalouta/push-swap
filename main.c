@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 19:20:03 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/06 15:16:55 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:01:06 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		return (0);
 	if (handle_args(ac, av, &args) == 1)
-		return (free_args(&args), ft_printf("Error\nAt least two numbers needed.\n"));
+		return (free_args(&args), 0);
 	if (verify_args(&args) == 1)
 		return (free_args(&args), ft_printf("Error\nInvalid args.\n"));
 	if (verify_integers(&args) == 1)

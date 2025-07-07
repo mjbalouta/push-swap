@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 15:22:19 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/07 12:41:53 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/07 13:38:26 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,28 +77,7 @@ void	put_minor_first(t_stack *stack_a, int size)
 	}
 }
 
-int	fill_binary_array(t_stack *stack_a)
-{
-	int		i;
-	char	*binary_form;
-	int		nr_digits;
 
-	i = 0;
-	stack_a->binary = ft_calloc(stack_a->size + 1, sizeof(char *));
-	if (!stack_a->binary)
-		return (1);
-	while (i < stack_a->size)
-	{
-		binary_form = convert_to_binary(stack_a->index[i]);
-		nr_digits = ft_strlen(binary_form);
-		stack_a->binary[i] = ft_calloc(nr_digits + 1, sizeof(char));
-		if (!stack_a->binary[i])
-			return (-1);
-		stack_a->binary[i] = binary_form;
-		i++;
-	}
-	return (0);
-}
 
 int	define_nr_comparisons(t_stack *stack_a)
 {

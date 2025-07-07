@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 11:33:08 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/06 15:27:25 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/07 13:58:30 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,16 @@ void	free_args(t_args *args)
 
 void	free_binary(t_stack *stack_a)
 {
-	int	i;
+	int i = 0;
 
-	i = 0;
-	if (stack_a->binary)
+	if (!stack_a->binary)
+		return;
+
+	while (i < stack_a->size)
 	{
-		while (i < stack_a->size)
-			free(stack_a->binary[i]);
-		free(stack_a->binary);
+		free(stack_a->binary[i]);
+		i++;
 	}
+	free(stack_a->binary);
+	stack_a->binary = NULL;
 }

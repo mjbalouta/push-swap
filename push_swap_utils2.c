@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 15:35:11 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/07 13:24:51 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/07 13:37:38 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,20 @@ int	find_largest_to_index(t_stack *stack_a)
 	stack_a->checked_size++;
 	return (index);
 }
-
+int	count_digits(int num)
+{
+	int	count;
+	
+	count = 0;
+	if (num == 0)
+		return (1);
+	while (num > 0)
+	{
+		num /= 2;
+		count++;
+	}
+	return (count);
+}
 // int	find_largest(t_stack *stack_a, int size)
 // {
 // 	int	larger;

@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:28:56 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/06 15:27:33 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/07 13:57:05 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	radix_sort(t_stack *stack_a, t_stack *stack_b)
 		// 	ft_printf("%d ", stack_a->numbers[i++]);
 		if (fill_index(stack_a) == 1)
 			return (1);
-		free(stack_a->binary);
+		free_binary(stack_a);
 		fill_binary_array(stack_a);
 		// ft_printf("\nSTACK A INDEX AFTER: ");
 		// i = 0;
@@ -111,7 +111,7 @@ int	radix_sort(t_stack *stack_a, t_stack *stack_b)
 	while (i < stack_a->size)
 		ft_printf("%d ", stack_a->numbers[i++]);
 	free(stack_a->index);
-	free(stack_a->binary);
+	free_binary(stack_a);
 	return (0);
 }
 
