@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 15:22:19 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/07 13:38:26 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/07 15:05:10 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	find_minor(t_stack *stack_a)
 
 	i = 0;
 	minor = INT_MAX;
-	while(i < stack_a->size)
+	while (i < stack_a->size)
 	{
 		if (stack_a->numbers[i] < minor)
 		{
@@ -40,7 +40,7 @@ int	find_max(int *num, int size)
 
 	i = 0;
 	max = INT_MIN;
-	while(i < size)
+	while (i < size)
 	{
 		if (num[i] > max)
 		{
@@ -51,6 +51,7 @@ int	find_max(int *num, int size)
 	}
 	return (index);
 }
+
 void	put_minor_first(t_stack *stack_a, int size)
 {
 	int	index;
@@ -77,15 +78,12 @@ void	put_minor_first(t_stack *stack_a, int size)
 	}
 }
 
-
-
 int	define_nr_comparisons(t_stack *stack_a)
 {
 	int		index_larg;
 	int		nr_digits;
 	char	*binary_form;
-	
-	
+
 	index_larg = find_max(stack_a->index, stack_a->size);
 	binary_form = convert_to_binary(stack_a->index[index_larg]);
 	nr_digits = ft_strlen(binary_form);

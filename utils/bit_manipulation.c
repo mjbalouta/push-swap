@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/30 17:13:39 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/07 13:41:14 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/07 15:22:19 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,3 @@ char	*convert_to_binary(int num)
 	}
 	return (nr);
 }
-
-

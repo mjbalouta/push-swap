@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 19:20:03 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/07 14:01:06 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:11:56 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	select_algorithm(t_stack *stack_a)
 	if (stack_a->size == 2)
 		sort_two(stack_a);
 	else if (stack_a->size == 3)
-		sort_three(stack_a); 
+		sort_three(stack_a);
 	else
 	{
 		stack_b.numbers = ft_calloc(stack_a->size, sizeof(int));
@@ -59,27 +59,27 @@ int	select_algorithm(t_stack *stack_a)
 }
 
 int	main(int ac, char **av)
-{	
+{
 	t_stack	stack_a;
 	t_args	args;
-	
+
 	if (ac < 2)
 		return (0);
 	if (handle_args(ac, av, &args) == 1)
 		return (free_args(&args), 0);
 	if (verify_args(&args) == 1)
-		return (free_args(&args), ft_printf("Error\nInvalid args.\n"));
+		return (free_args(&args), ft_printf(ERROR_ARGS));
 	if (verify_integers(&args) == 1)
-		return (free_args(&args), ft_printf("Error\nOnly integers up to int_max and down to int_min allowed.\n"));
+		return (free_args(&args), ft_printf(ERROR_LIMITS));
 	stack_a.size = args.new_ac;
 	stack_a.numbers = ft_calloc(stack_a.size, sizeof(int));
 	if (!stack_a.numbers)
-		return (ft_printf("Error\nCan't allocate memory.\n"));
+		return (ft_printf(ERROR_MEM));
 	stack_a.numbers = fill_stack(&stack_a, &args);
 	if (detect_duplicates(&stack_a) == 1)
-		return (free_memory(&stack_a, &args), ft_printf("Error\nDuplicates are not allowed.\n"));
+		return (free_memory(&stack_a, &args), ft_printf(ERROR_DUPLICATES));
 	if (select_algorithm(&stack_a) == 1)
-		return (free_memory(&stack_a, &args), ft_printf("Error\nCan't allocate memory.\n"));
+		return (free_memory(&stack_a, &args), ft_printf(ERROR_MEM));
 	free_memory(&stack_a, &args);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 19:20:15 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/06 15:06:57 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/07 15:26:55 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 # include "./libft-projects/get-next-line/get_next_line.h"
 # include "./libft-projects/libft/libft.h"
 # include "./libft-projects/printf/libftprintf.h"
+
+# define ERROR_ARGS "Error\nInvalid args.\n"
+# define ERROR_LIMITS "Error\nOnly integers from int_min to int_max allowed.\n"
+# define ERROR_MEM "Error\nCan't allocate memory.\n"
+# define ERROR_DUPLICATES "Error\nDuplicates are not allowed.\n"
 
 typedef struct s_stack
 {
@@ -63,9 +68,10 @@ void	sort_two(t_stack *stack_a);
 void	sort_three(t_stack *stack_a);
 void	sort_four_five(t_stack *stack_a, t_stack *stack_b);
 int		radix_sort(t_stack *stack_a, t_stack *stack_b);
+int		exists_in_checked(t_stack *stack_a, int i);
 int		find_largest_to_index(t_stack *stack_a);
 int		fill_index(t_stack *stack_a);
 void	divide_by_stacks(t_stack *stack_a, t_stack *stack_b, int iterations);
-int		duplicate_stack(t_stack *stack_a);
+void	sorting(t_stack *stack_a, t_stack *stack_b, int j);
 
 #endif

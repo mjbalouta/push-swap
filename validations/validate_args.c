@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:45:06 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/02 22:08:40 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/07 15:32:18 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	detect_duplicates(t_stack *stack_a)
 	int		i;
 	int		j;
 	int		*num;
-	
+
 	i = 0;
 	num = stack_a->numbers;
 	while (i < (stack_a->size - 1))
@@ -50,6 +50,7 @@ int	verify_integers(t_args *args)
 	}
 	return (0);
 }
+
 int	handle_args(int ac, char **av, t_args *args)
 {
 	args->new_ac = 0;
@@ -67,9 +68,10 @@ int	handle_args(int ac, char **av, t_args *args)
 		args->changed = 0;
 	}
 	if (args->new_ac == 1)
-			return (1);
+		return (1);
 	return (0);
 }
+
 int	verify_args(t_args *args)
 {
 	int		i;
@@ -83,11 +85,12 @@ int	verify_args(t_args *args)
 		i = 0;
 		while (av[ac][i])
 		{
-			if ((av[ac][i] == '-' || av[ac][i] == '+') || (av[ac][i] >= '0' && av[ac][i] <= '9'))
+			if ((av[ac][i] == '-' || av[ac][i] == '+')
+				|| (av[ac][i] >= '0' && av[ac][i] <= '9'))
 				i++;
 			else
 				return (1);
 		}
 	}
-	return (0); 
+	return (0);
 }
