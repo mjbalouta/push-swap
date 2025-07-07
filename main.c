@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 19:20:03 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/07 14:11:56 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/07 17:11:37 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,20 +66,18 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		return (0);
 	if (handle_args(ac, av, &args) == 1)
-		return (free_args(&args), 0);
-	if (verify_args(&args) == 1)
-		return (free_args(&args), ft_printf(ERROR_ARGS));
+		return (free_args(&args), write(2, "Error\n", 6));
 	if (verify_integers(&args) == 1)
-		return (free_args(&args), ft_printf(ERROR_LIMITS));
+		return (free_args(&args), write(2, "Error\n", 6));
 	stack_a.size = args.new_ac;
 	stack_a.numbers = ft_calloc(stack_a.size, sizeof(int));
 	if (!stack_a.numbers)
-		return (ft_printf(ERROR_MEM));
+		return (write(2, "Error\n", 6));
 	stack_a.numbers = fill_stack(&stack_a, &args);
 	if (detect_duplicates(&stack_a) == 1)
-		return (free_memory(&stack_a, &args), ft_printf(ERROR_DUPLICATES));
+		return (free_memory(&stack_a, &args), write(2, "Error\n", 6));
 	if (select_algorithm(&stack_a) == 1)
-		return (free_memory(&stack_a, &args), ft_printf(ERROR_MEM));
+		return (free_memory(&stack_a, &args), write(2, "Error\n", 6));
 	free_memory(&stack_a, &args);
 	return (0);
 }

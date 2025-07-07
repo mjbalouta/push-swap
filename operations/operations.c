@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 10:06:44 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/07 15:43:21 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/07 17:15:02 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,18 +113,3 @@ void	pa(t_stack *stack_a, t_stack *stack_b)
 	stack_b->size--;
 	ft_printf("pa\n");
 }
-
-// void	sb(t_stack *stack_b)
-// {
-// 	int	temp;
-
-// 	temp = stack_b[0];
-// 	stack_b[0] = stack_b[1];
-// 	stack_b[1] = temp;
-// }
-// void	pa(int *stack_a, int *stack_b)
-// {
-// 	int	to_push;
-// 	int	temp;
-// 	stack_b[0] = to_push;
-// }

@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:45:06 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/07 15:52:54 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/07 17:12:17 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ int	verify_integers(t_args *args)
 
 int	handle_args(int ac, char **av, t_args *args)
 {
+	if (verify_args(ac, av) == 1)
+		return (1);
 	args->new_ac = 0;
 	if (ac == 2)
 	{
@@ -68,18 +70,14 @@ int	handle_args(int ac, char **av, t_args *args)
 		args->changed = 0;
 	}
 	if (args->new_ac == 1)
-		return (1);
+		return (0);
 	return (0);
 }
 
-int	verify_args(t_args *args)
+int	verify_args(int ac, char **av)
 {
-	int		i;
-	int		ac;
-	char	**av;
+	int	i;
 
-	ac = args->new_ac;
-	av = args->new_av;
 	while (--ac > 0)
 	{
 		i = 0;
