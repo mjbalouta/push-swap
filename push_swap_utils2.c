@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 15:35:11 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/06 13:42:24 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/07 13:24:51 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	find_largest_to_index(t_stack *stack_a)
 	{
 		exists = 0;
 		j = 0;
-		while (j < stack_a->size - 1)
+		while (j < stack_a->checked_size)
 		{
 			if (stack_a->numbers[i] == stack_a->checked[j])
 				exists = 1;
