@@ -6,11 +6,11 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:45:06 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/07 15:32:18 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/07 15:52:54 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	detect_duplicates(t_stack *stack_a)
 {

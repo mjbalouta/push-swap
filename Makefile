@@ -13,7 +13,16 @@
 CC          = cc
 CFLAGS      = -Wall -Wextra -Werror -I$(LIBFT_DIR) -g
 NAME        = push_swap
-SRCS        = main.c operations.c sorting_algorithms.c push_swap_utils.c push_swap_utils2.c bit_manipulation.c validate_args.c radix_sort.c free_mem.c
+SRCS = 		\
+			main.c \
+			./operations/operations.c \
+			./sorting_algorithms/sorting_algorithms.c \
+			./utils/push_swap_utils.c \
+			./utils/push_swap_utils2.c \
+			./utils/bit_manipulation.c \
+			./validations/validate_args.c \
+			./sorting_algorithms/radix_sort.c \
+			./utils/free_mem.c
 OBJS        = $(SRCS:.c=.o)
 LIBFT_DIR   = ./libft-projects
 LIBFT       = $(LIBFT_DIR)/complete_libft.a

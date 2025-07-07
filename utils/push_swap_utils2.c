@@ -6,11 +6,11 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 15:35:11 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/07 15:31:05 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/07 15:42:55 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	exists_in_checked(t_stack *stack_a, int i)
 {

@@ -6,11 +6,11 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 11:33:08 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/07 15:33:17 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/07 15:42:44 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	free_memory(t_stack *stack_a, t_args *args)
 {
