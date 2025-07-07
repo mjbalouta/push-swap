@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 15:22:19 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/06 15:25:32 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/07 12:41:53 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ int	fill_binary_array(t_stack *stack_a)
 		if (!stack_a->binary[i])
 			return (-1);
 		stack_a->binary[i] = binary_form;
-		free(binary_form);
 		i++;
 	}
 	return (0);
