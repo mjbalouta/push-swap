@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:45:06 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/07 17:12:17 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/07 18:51:18 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	verify_integers(t_args *args)
 	av = args->new_av;
 	while (--ac > 0)
 	{
-		num = ft_atoi(av[ac]);
+		num = ft_atoi(av[ac - 1]);
 		if (num > INT_MAX || num < INT_MIN)
 			return (1);
 	}
@@ -53,8 +53,6 @@ int	verify_integers(t_args *args)
 
 int	handle_args(int ac, char **av, t_args *args)
 {
-	if (verify_args(ac, av) == 1)
-		return (1);
 	args->new_ac = 0;
 	if (ac == 2)
 	{
@@ -69,6 +67,8 @@ int	handle_args(int ac, char **av, t_args *args)
 		args->new_av = av + 1;
 		args->changed = 0;
 	}
+	if (verify_args(args->new_ac, args->new_av) == 1)
+		return (1);
 	if (args->new_ac == 1)
 		return (0);
 	return (0);
@@ -78,7 +78,8 @@ int	verify_args(int ac, char **av)
 {
 	int	i;
 
-	while (--ac > 0)
+	ac = ac - 1;
+	while (ac >= 0)
 	{
 		i = 0;
 		while (av[ac][i])
@@ -89,6 +90,7 @@ int	verify_args(int ac, char **av)
 			else
 				return (1);
 		}
+		ac--;
 	}
 	return (0);
 }
