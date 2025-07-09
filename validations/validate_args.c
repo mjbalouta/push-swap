@@ -6,7 +6,7 @@
 /*   By: mjoao-fr <mjoao-fr@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 11:45:06 by mjoao-fr          #+#    #+#             */
-/*   Updated: 2025/07/07 18:51:18 by mjoao-fr         ###   ########.fr       */
+/*   Updated: 2025/07/08 11:48:07 by mjoao-fr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ int	verify_integers(t_args *args)
 
 	ac = args->new_ac;
 	av = args->new_av;
-	while (--ac > 0)
+	while (--ac >= 0)
 	{
-		num = ft_atoi(av[ac - 1]);
+		num = ft_atoi(av[ac]);
 		if (num > INT_MAX || num < INT_MIN)
 			return (1);
 	}
