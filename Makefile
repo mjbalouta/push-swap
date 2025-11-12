@@ -11,18 +11,20 @@
 # **************************************************************************** #
 
 CC          = cc
-CFLAGS      = -Wall -Wextra -Werror -I$(LIBFT_DIR) -g
+HEADER_FILE = includes
+INCLUDES	= -I$(LIBFT_DIR)/libft -I$(LIBFT_DIR)/get-next-line -I$(LIBFT_DIR)/printf -I$(HEADER_FILE)
+CFLAGS      = -Wall -Wextra -Werror $(INCLUDES) -g
 NAME        = push_swap
 SRCS = 		\
-			main.c \
-			./operations/operations.c \
-			./sorting_algorithms/sorting_algorithms.c \
-			./utils/push_swap_utils.c \
-			./utils/push_swap_utils2.c \
-			./utils/bit_manipulation.c \
-			./validations/validate_args.c \
-			./sorting_algorithms/radix_sort.c \
-			./utils/free_mem.c
+			srcs/main.c \
+			srcs//operations/operations.c \
+			srcs//sorting_algorithms/sorting_algorithms.c \
+			srcs//utils/push_swap_utils.c \
+			srcs//utils/push_swap_utils2.c \
+			srcs//utils/bit_manipulation.c \
+			srcs//validations/validate_args.c \
+			srcs//sorting_algorithms/radix_sort.c \
+			srcs//utils/free_mem.c
 OBJS        = $(SRCS:.c=.o)
 LIBFT_DIR   = ./libft-projects
 LIBFT       = $(LIBFT_DIR)/complete_libft.a
